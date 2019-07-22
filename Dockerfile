@@ -7,12 +7,8 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . /app
 
-# Update pip
-
-RUN pip install --trusted-host pypi.python.org --upgrade pip
-
 # Install any needed packages specified in requirements.txt
-RUN pip install --trusted-host pypi.python.org -r requirements.txt
+RUN pip install --trusted-host pypi.python.org --trusted-host files.pythonhosted.org --trusted-host pypi.org -r requirements.txt
 
 # Make port 80 available to the world outside this container
 EXPOSE 80
